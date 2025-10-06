@@ -1,0 +1,17 @@
+📊 Loan Metrics
+
+Total Loans = COUNTROWS('Bank_Loan_Performance')
+Approved Loans = CALCULATE(COUNTROWS('Bank_Loan_Performance'), 'Bank_Loan_Performance'[Approval_Status] = "Approved")
+Approval Rate (%) = DIVIDE([Approved Loans], [Total Loans], 0)
+
+💰 Financial Metrics
+
+Total Loan Amount = SUM('Bank_Loan_Performance'[Loan_Amount])
+Average Loan Amount = AVERAGE('Bank_Loan_Performance'[Loan_Amount])
+Total Income = SUM('Bank_Loan_Performance'[Income])
+
+⚠️ Risk Metrics
+
+Defaulted Loans = CALCULATE(COUNTROWS('Bank_Loan_Performance'), 'Bank_Loan_Performance'[Default_Status] = "Default")
+Default Rate (%) = DIVIDE([Defaulted Loans], [Approved Loans], 0)
+Average Credit Score = AVERAGE('Bank_Loan_Performance'[Credit_Score])
